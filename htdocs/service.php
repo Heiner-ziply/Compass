@@ -47,10 +47,10 @@ else {$sql .= " concat(d.hostname,'.',d.domain) as Hostname, concat(d.hostname,'
 $sql .= ' d.os as "OS",  d.service_type as "Service Type", s.server_brand as "Brand",';
 //$sql .= ' d.env_name as "Environment Name", ';
 //$sql .= ' d.app_name as "Application Name", ';
-$sql .= ' s.URL, s.admin_url as "Admin URL", s.IP, PORT, oraclenet_fqdn as "Oracle Net8 string", svc_cluster as "Service Cluster",';
+$sql .= ' s.URL, s.admin_url as "Admin URL", s.IP, Port as "Port", oraclenet_fqdn as "Oracle Net8 string", svc_cluster as "Service Cluster",';
 $sql .=" nvl2(wiki_page,'<a href='|| chr(34) || wiki_page || chr(34) || '>' || wiki_page || '</a>','') " . 'as "Wiki Page" ';
 if($settings['DEFAULT_DB_TYPE']=='oracle') {
-	$sql .= " from server_directory d inner join service s on s.service_id=d.service_id " ; 
+	$sql .= ' , s.status as "Service Status" from server_directory d inner join service s on s.service_id=d.service_id ' ; 
 	$sql .= " left join support_team t on t.id=s.support_team_id ";
 	$sql .= " where upper(nvl(d.service_type,'UNKNOWN')) !='UNKNOWN' and d.service_id=".$ID;
 }

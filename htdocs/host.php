@@ -7,7 +7,7 @@ table.b, th.b, td.b {
 }
 </style>
 <script src="Hydrogen/sorttable.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="Hydrogen/jquery.min.js"></script>
 
 
 <script>
@@ -49,7 +49,8 @@ if ($settings['DEFAULT_DB_TYPE']=='oracle') {
 	$sql .=" '<a href=' || chr(34) || decode(s.os,'Windows','mstsc://','kitty://') || nvl2(s.domain,s.hostname||'.'||s.domain,s.hostname) || chr(34) || '><img src=' || chr(34) || 'images/' ||  decode(s.os,'Windows','mswin.jpg','ssh-icon.png') || chr(34) || ' height=' || chr(34) || '24' || chr(34) ||'></a>' ";
 }
 $sql .= ' as "Click here to connect", os as "OS" ';
-$sql .=',t.display_name as "Support Team", h.DEVICE_TYPE as "Device Type",h.IP ,h.ILOM_IP as "ILOM IP" , h.ntp1, h.ntp2 ,h.VIRTUALIZATION as "Virtualization",h.OS_VERSION as "OS Version",h.MAKE as "Make",h.MODEL as "Model",h.CPU_TYPE as "CPU Type" ,h.CPU_SPEED_MHZ as "CPU Speed (MHz)",h.CPU_COUNT as "CPU Count",h.MEMORY_MB as "Memory (MB)",h.WARRANTY_EXPIRES "Warranty Expiration date",h.EOSL as "End of Service Life",h.COMMENTS as "Comments" ,h.TIMEZONE as "Time Zone" ,h.HEARTBEAT as "Heartbeat date",h.STATUS as "Status" ,h.HARDWARE_STATUS as "Hardware status",h.SUBLOCATION,h.SERIALNUMBER as "Serial Number",l.loc_name as "Location name",l.address_street as "Street Address", l.address_city as "City", l.address_state as "State" ';
+$sql .=',t.display_name as "Support Team", h.DEVICE_TYPE as "Device Type",h.IP ,h.ILOM_IP as "ILOM IP" , h.ntp1, h.ntp2 ,h.VIRTUALIZATION as "Virtualization",h.OS_VERSION as "OS Version",h.MAKE as "Make",h.MODEL as "Model",h.CPU_TYPE as "CPU Type" ,h.CPU_SPEED_MHZ as "CPU Speed (MHz)",h.CPU_COUNT as "CPU Count",h.MEMORY_MB as "Memory (MB)",h.WARRANTY_EXPIRES "Warranty Expiration date", ' . 
+'h.EOSL as "End of Service Life",h.COMMENTS as "Comments" ,h.TIMEZONE as "Time Zone" ,h.HEARTBEAT as "Heartbeat date",h.STATUS as "Status" ,h.HARDWARE_STATUS as "Hardware status",h.SUBLOCATION,h.SERIALNUMBER as "Serial Number",l.loc_name as "Location name",l.address_street as "Street Address", l.address_city as "City", l.address_state as "State" ';
 $sql=$sql . " from server_directory s inner join host h on s.hosT_id=h.host_id left join support_team t on t.id=h.support_team_id left join location l on h.location_id=l.loc_id where s.host_id=" . $ID;
 
 if (isset($_GET['servicetype'])) $sql=$sql . " and upper(service_type)=upper('" . $stateVar['servicetype'] . "')";

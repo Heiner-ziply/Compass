@@ -10,7 +10,7 @@ ul.pagination {
 }
 </style>
 <script src="Hydrogen/sorttable.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
   //The following two lines replace link text with left and right arrows as appropriate

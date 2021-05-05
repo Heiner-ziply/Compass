@@ -80,7 +80,10 @@ if (isset($_GET['menu'])) {
 
     if ($_GET['menu']=="admin"){
         $sidebar_links[sizeof($sidebar_links)]=array("name"=>'<img src="images/globe.png" height="25" alt="(globe icon)"></td><td>System Status',"href"=>"admin_sysstatus.php","class"=>"w3-hover-blue");
-        $sidebar_links[sizeof($sidebar_links)]=array("name"=>'<img src="images/team.png" height="25" alt="(globe icon)"></td><td>User Privileges',"href"=>"admin_userprivs.php","class"=>"w3-hover-blue");
+        $sidebar_links[sizeof($sidebar_links)]=array("name"=>'<img src="images/profile.png" height="25" alt="(globe icon)"></td><td>Users',"href"=>"admin_users.php","class"=>"w3-hover-blue");
+        $sidebar_links[sizeof($sidebar_links)]=array("name"=>'<img src="images/group.png" height="25" alt="(globe icon)"></td><td>Roles',"href"=>"admin_roles.php","class"=>"w3-hover-blue");
+        $sidebar_links[sizeof($sidebar_links)]=array("name"=>'<img src="images/key.png" height="25" alt="(globe icon)"></td><td>Privileges',"href"=>"admin_privs.php","class"=>"w3-hover-blue");
+  
     }
 
     if ($_GET['menu']=="help"){

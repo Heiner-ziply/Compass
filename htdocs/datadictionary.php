@@ -35,6 +35,7 @@ For convenience, you may want to set the schema to "OVERDRIVE" at the session le
 <?php
 
 $tablesql = 'select table_name, comments from overdrive.tab_comments order by table_name ';
+$dds->setMaxRecs(200);
 $table_results = $dds->setSQL($tablesql);
 $table_recs = $dds->getDataset();
 
